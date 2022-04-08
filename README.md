@@ -9,6 +9,8 @@ status](http://www.r-pkg.org/badges/version/gmat)](https://CRAN.R-project.org/pa
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN
 downloads](http://cranlogs.r-pkg.org/badges/grand-total/gmat)](https://CRAN.R-project.org/package=gmat)
+[![R-CMD-check](https://github.com/gherardovarando/gmat/actions/workflows/r.yml/badge.svg)](https://github.com/gherardovarando/gmat/actions/workflows/r.yml)
+
 
 ## Installation
 
@@ -24,7 +26,7 @@ development version:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("irenecrsn/gmat")
+devtools::install_github("gherardovarando/gmat")
 ```
 
 The other R packages required for `gmat` are `igraph` and `gRbase`,
