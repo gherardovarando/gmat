@@ -38,11 +38,11 @@ static void gram_schmidt (double *res, double **span,
 int port_sample(double *res, double *madj,	double *Q, unsigned int p,
 	unsigned int N) {
 
-	double mort[p * p];
-
 	if (res == NULL || madj == NULL || Q == NULL) {
 		return PORT_ENULL;
 	}
+
+	double *mort = malloc(p * p * sizeof(double));
 
 	for (int n = 0; n < N; n++) {
 		/* Partial orthogonalization of the initial Q factors */
@@ -51,12 +51,15 @@ int port_sample(double *res, double *madj,	double *Q, unsigned int p,
 		crossproduct(res + n*p*p, mort, madj, p);
 	}
 
+	free(mort);
+
 	return PORT_OK;
 }
 
 static void port(double *res, double *madj, double *Q, unsigned int p) {
 
-	double *span_sel[p], ort_base[p * p];
+	double *span_sel[p];
+	double *ort_base = malloc(p * p * sizeof(double));
 	unsigned int n_span = 0, jp = 0;
 
 	memcpy(res, Q, sizeof(double) * p * p);
@@ -80,6 +83,8 @@ static void port(double *res, double *madj, double *Q, unsigned int p) {
 		/* the last vector of the orthonormalized span is the new j-th column */
 		memcpy(res + jp, ort_base + (n_span - 1)*p, sizeof(double) * p);
 	}
+
+	free(ort_base);
 }
 
 /*
