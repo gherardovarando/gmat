@@ -1,13 +1,13 @@
 Package: gmat
 Type: Package
 Title: Simulation of Graphical Correlation Matrices
-Version: 0.2.2
+Version: 0.2.2.999
 Date: 2020-08-29
 Encoding: UTF-8
 Authors@R: c(
     person(given = "Irene", family = "Córdoba", role = "aut",
 	comment = c(ORCID = "0000-0002-3252-4234")),
-    person(given = "Gherardo", family = "Varando", email = "gherardo.varando@math.ku.dk", role = c("aut", "cre"),
+    person(given = "Gherardo", family = "Varando", email = "gherardo.varando@gmail.com", role = c("aut", "cre"),
 	comment = c(ORCID = "0000-0002-6708-1103")),
     person(given = "Concha", family = "Bielza", role = "ths",
 	comment = c(ORCID = "0000-0001-7109-2668")),
