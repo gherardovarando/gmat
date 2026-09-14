@@ -1,3 +1,16 @@
+# gmat 0.2.3
+
+## Bug fixes
+* Removed dependency on `gRbase` and the Bioconductor `graph` package.
+  `ug_to_dag()` now uses `igraph::is_chordal()` and `igraph::max_cardinality()`
+  instead of `gRbase::triangulate()` and `gRbase::mcs()`. Tests also updated
+  to use `igraph::topo_sort()` instead of `gRbase::topoSort()`.
+
+## Minor improvements
+* Now requiring `igraph (>= 2.1.0)` and using its current function names
+  throughout, replacing the deprecated `igraph::topological.sort()` and
+  `igraph::as.undirected()`.
+
 # gmat 0.2.2
 Some meta updates (biblio and maintenance change) and minor fixes, detailed
 below.

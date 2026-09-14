@@ -29,8 +29,8 @@ development version:
 devtools::install_github("gherardovarando/gmat")
 ```
 
-The other R packages required for `gmat` are `igraph` and `gRbase`,
-which can be installed from CRAN and Bioconductor.
+The only R package required for `gmat` (beyond base R) is `igraph`,
+which can be installed from CRAN.
 
 ## Overview
 

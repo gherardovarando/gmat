@@ -161,7 +161,7 @@ mh_u <- function(N = 1,
                  ...) {
   if (is.null(dag) == FALSE) {
     p <- length(igraph::V(dag))
-    dag_topo_sort <- as.numeric(igraph::topological.sort(dag))
+    dag_topo_sort <- as.integer(igraph::topo_sort(dag))
     inv <- order(dag_topo_sort)
     u <- igraph::as_adjacency_matrix(dag, sparse = FALSE)[dag_topo_sort, dag_topo_sort]
     diag(u) <- 1
