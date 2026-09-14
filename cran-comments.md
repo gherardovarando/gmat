@@ -13,13 +13,20 @@ The fix replaces all `gRbase`/`graphNEL`-dependent code with pure `igraph` equiv
 - `gRbase::mcs()` → `igraph::max_cardinality()$alpham1`
 - `gRbase::topoSort()` → `igraph::topo_sort()`
 
-`gRbase` has been removed from `Imports`.
+`gRbase` has been removed from `Imports`. The package now depends only on
+`igraph` and `stats`, and requires `igraph (>= 2.1.0)` so that it can use
+igraph's current function names throughout (the previously used
+`igraph::topological.sort()` and `igraph::as.undirected()` are deprecated).
 
 ## Test environments
 * GitHub Actions: ubuntu-latest (R devel, release, oldrel-1), macOS-latest (release), windows-latest (release)
+* Local Ubuntu 24.04, R 4.3.3, igraph 2.3.3
 
 ## R CMD check results
-There are no ERRORs, WARNINGs or NOTEs.
+There are no ERRORs or WARNINGs.
+
+There is one NOTE about this being a new submission, as the package was
+archived on CRAN on 2023-09-23.
 
 ## Downstream dependencies
 There are currently no downstream dependencies for this package.
