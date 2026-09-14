@@ -21,7 +21,7 @@ test_that("upper Cholesky factors are of Cholesky", {
   # Random zero pattern corresponding to an arbitrary dag
   dag <- rgraph(p = p, d = d, dag = TRUE, ordered = FALSE)
   u_sample <- mh_u(dag = dag)[, , 1]
-  topsort <- gRbase::topoSort(igraph::as_graphnel(dag), index = TRUE)
+  topsort <- as.integer(igraph::topo_sort(dag))
   expect_cholesky(u_sample[topsort, topsort])
 })
 
@@ -31,7 +31,7 @@ test_that("the dag structure is preserved", {
   d <- 0.25
 
   expect_equal_dag <- function(m, dag) {
-    topsort <- gRbase::topoSort(igraph::as_graphnel(dag), index = TRUE)
+    topsort <- as.integer(igraph::topo_sort(dag))
 
     madj <- igraph::as_adjacency_matrix(dag, sparse = FALSE)
     madj <- madj[topsort, topsort]

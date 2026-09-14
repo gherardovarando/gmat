@@ -67,7 +67,7 @@ port <- function(N = 1, p = 3, d = 1, ug = NULL, rfun = stats::rnorm, ...) {
 #' @details Function [port_chol()] uses the method described in Córdoba et
 #' al. (2019), combining uniform sampling with partial orthogonalization as
 #' follows. If the graph provided is not chordal, then a chordal cover is found
-#' using [gRbase::triangulate()]. Then uniform sampling for the upper Choleksy
+#' using [igraph::is_chordal()]. Then uniform sampling for the upper Choleksy
 #' factor corresponding to such chordal cover is performed with [mh_u()].
 #' Finally, it uses partial orthogonalization as [port()] to add the missing
 #' zeros (corresponding to fill-in edges in the chordal cover). The behaviour of
