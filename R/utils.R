@@ -128,7 +128,11 @@ ug_to_dag <- function(ug) {
   # Maximum cardinality search gives a perfect elimination ordering,
   # which becomes the ancestral ordering of the DAG orientation.
   # By construction this ordering cannot induce v-structures.
-  dag_topo_sort <- igraph::max_cardinality(ug_cover)$alpha
+  # igraph's max_cardinality returns a PEO where later neighbors form a clique
+  # (alpha[1] = simplicial vertex). Reversing gives the MCS selection order
+  # where earlier neighbors form a clique — the correct orientation for
+  # no v-structures (each vertex's parents are earlier selected, hence a clique).
+  dag_topo_sort <- rev(igraph::max_cardinality(ug_cover)$alpha)
   inv <- order(dag_topo_sort)
   dag_mat <- igraph::as_adjacency_matrix(ug_cover, type = "both", sparse = FALSE)
   dag_mat <- dag_mat[dag_topo_sort, dag_topo_sort]

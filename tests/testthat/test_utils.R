@@ -87,7 +87,7 @@ test_that("the skeleton of the oriented dag is chordal", {
 
   dag <- ug_to_dag(ug = ug)
 
-  expect_true(igraph::is_chordal(igraph::as.undirected(dag))$chordal)
+  expect_true(igraph::is_chordal(igraph::as_undirected(dag))$chordal)
 })
 
 test_that("the skeleton of the oriented dag contains the original ug, keeping
@@ -97,7 +97,7 @@ the order", {
 
   ug <- rgraph(p = p, d = d)
   dag <- ug_to_dag(ug = ug)
-  ug_cover <- igraph::as.undirected(dag)
+  ug_cover <- igraph::as_undirected(dag)
 
   # This forces to keep the order
   domains <- as.list(1:p)
