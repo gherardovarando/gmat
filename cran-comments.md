@@ -10,7 +10,7 @@ On Fedora-based CRAN check platforms where `graph` is not installed, this caused
 
 The fix replaces all `gRbase`/`graphNEL`-dependent code with pure `igraph` equivalents:
 - `gRbase::triangulate()` → `igraph::is_chordal(newgraph = TRUE)$newgraph`
-- `gRbase::mcs()` → `igraph::max_cardinality()$alpha`
+- `gRbase::mcs()` → `igraph::max_cardinality()$alpham1`
 - `gRbase::topoSort()` → `igraph::topo_sort()`
 
 `gRbase` has been removed from `Imports`.
